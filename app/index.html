@@ -3,34 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leonida Platinum Guide — GTA VI Trophy Guide &amp; Tracker</title>
+<title>Leonida Nights — GTA VI Trophy Guide &amp; Tracker</title>
 <link rel="icon" href="favicon.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="masthead">
-  <div class="masthead-text">
-    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5</p>
-    <h1>Leonida Platinum Guide</h1>
-    <p class="tagline">All 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — with a guide for each one, a roadmap to the platinum, and a checklist that saves in your browser.</p>
+<header class="top">
+  <div class="top-copy">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5</p>
+    <h1>Leonida Nights</h1>
+    <p class="lede">All 55 official trophies — 1 platinum, 2 gold, 6 silver, 46 bronze — each with a guide in our own words, a roadmap to the platinum, and a checklist that saves in your browser.</p>
   </div>
-  <div class="progress-card" id="progressCard" aria-label="Progress">
-    <div class="progress-number"><span id="earnedNum">0</span><span class="of">/ 55</span></div>
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <p class="progress-detail" id="progressDetail">0% complete</p>
-    <p class="grade-line" id="gradeLine"></p>
+  <div class="meter" aria-label="Progress">
+    <div class="meter-num"><span id="earnedNum">0</span><span class="meter-of">/ 55</span></div>
+    <div class="meter-bar"><div class="meter-fill" id="progressFill"></div></div>
+    <p class="meter-text" id="progressText">0% complete</p>
+    <p class="meter-grades" id="gradeLine"></p>
   </div>
 </header>
-<nav class="views" id="views" aria-label="Views">
-  <button type="button" data-view="checklist" class="view-btn active">Checklist</button>
-  <button type="button" data-view="roadmap" class="view-btn">Roadmap to Platinum</button>
-  <button type="button" data-view="missables" class="view-btn">Missable Trophies</button>
-  <button type="button" data-view="nextup" class="view-btn">Next Up</button>
+<nav class="tabs" aria-label="Views">
+  <button type="button" data-tab="checklist" class="tab-btn on">Checklist</button>
+  <button type="button" data-tab="roadmap" class="tab-btn">Roadmap to Platinum</button>
+  <button type="button" data-tab="missables" class="tab-btn">Missable Trophies</button>
+  <button type="button" data-tab="nextup" class="tab-btn">Next Up</button>
 </nav>
-<section class="controls" id="controls">
-  <input id="searchBox" type="search" placeholder="Search by name or description…  ( / )" aria-label="Search trophies">
-  <label class="field">Kind
-    <select id="kindSel">
+<section class="filters" id="filters">
+  <input id="q" type="search" placeholder="Search by name or description…  ( / )" aria-label="Search trophies">
+  <label class="fld">Kind
+    <select id="kind">
       <option value="all">All kinds</option>
       <option value="story">Story</option>
       <option value="side">Side missions</option>
@@ -44,8 +44,8 @@
       <option value="completion">100% completion</option>
     </select>
   </label>
-  <label class="field">Grade
-    <select id="gradeSel">
+  <label class="fld">Grade
+    <select id="grade">
       <option value="all">All grades</option>
       <option value="platinum">Platinum</option>
       <option value="gold">Gold</option>
@@ -53,33 +53,33 @@
       <option value="bronze">Bronze</option>
     </select>
   </label>
-  <label class="field">Status
-    <select id="statusSel">
+  <label class="fld">Status
+    <select id="status">
       <option value="all">Earned &amp; unearned</option>
       <option value="unearned">Unearned only</option>
       <option value="earned">Earned only</option>
     </select>
   </label>
-  <label class="check-field"><input id="missableOnly" type="checkbox"> Missable only</label>
-  <label class="check-field"><input id="spoilerHide" type="checkbox"> Hide story spoilers</label>
-  <span class="flex-spacer"></span>
+  <label class="chk"><input id="missOnly" type="checkbox"> Missable only</label>
+  <label class="chk"><input id="spoilerBox" type="checkbox"> Hide story spoilers</label>
+  <span class="spacer"></span>
   <button id="exportBtn" type="button">Export progress</button>
-  <label class="import-btn">Import progress <input id="importInput" type="file" accept="application/json,.json"></label>
-  <button id="resetBtn" type="button" class="danger-btn">Reset</button>
+  <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <button id="resetBtn" type="button" class="warn-btn">Reset</button>
 </section>
-<main id="main">
-  <div class="two-col" id="checklistView">
-    <div class="list-col">
-      <p class="list-meta" id="listMeta"></p>
-      <ul class="cards" id="trophyCards"></ul>
+<main>
+  <div class="split" id="checklistPage">
+    <div class="list-pane">
+      <p class="count" id="listCount"></p>
+      <ul class="trophies" id="trophyList"></ul>
     </div>
-    <aside class="detail-col" id="detailCol" aria-live="polite"></aside>
+    <aside class="detail-pane" id="detail" aria-live="polite"></aside>
   </div>
-  <section class="page" id="roadmapView" hidden></section>
-  <section class="page" id="missablesView" hidden></section>
-  <section class="page" id="nextupView" hidden></section>
+  <section class="sheet" id="roadmapPage" hidden></section>
+  <section class="sheet" id="missPage" hidden></section>
+  <section class="sheet" id="nextPage" hidden></section>
 </main>
-<footer class="foot">
+<footer class="colophon">
   <p>Names, descriptions and grades are the official PlayStation list, as listed by Exophase and PSNProfiles on 18 November 2026. Every guide is written in our own words from those official descriptions; the game launched on 19 November 2026, so exact spots and steps are not yet verified in the game — guides say so where they guess. No Rockstar logo or artwork is used.</p>
   <p>Sources: <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase — GTA VI trophy list</a> &middot; <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles — GTA VI trophies</a> &middot; This guide works fully offline: it loads nothing from the network and saves your progress in this browser only.</p>
 </footer>
